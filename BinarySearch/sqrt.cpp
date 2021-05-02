@@ -19,32 +19,18 @@ typedef map<string,int> msi;
 typedef map<int,int> mii;
 typedef unordered_map<string,int> umsi;
 
-bool isprime(int x)
-{
-    if(x==1)return false;
-     if(x==2)return true;
-    if(x%2==0)return false;
-    
-    for(int i=3;i<=sqrt(x);i+=2 )
-    {
-        if(x%i==0)return false;
-    }
-    return true;
-}
 
-vector<int> NNprimesum(int A) {
-   vector<int>res(2); 
-    for(int i=2;i<A;i++)
+int sqrt(int A) {
+    if(A==0)return 0;
+    long long int s=1;
+    long long int e=A;
+    while(s<=e)
     {
-        if(isprime(A-i) && isprime(i))
-        {
-            res[0]=i;
-            res[1]=A-i;
-            break;
-        }
-        
+        long long int m=(s+e)/2;
+        if(m*m >= A)e=m-1;
+        else s=m+1;
     }
-    return res;
+    return e;
 }
  
  

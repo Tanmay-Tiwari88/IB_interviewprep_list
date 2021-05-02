@@ -19,32 +19,21 @@ typedef map<string,int> msi;
 typedef map<int,int> mii;
 typedef unordered_map<string,int> umsi;
 
-bool isprime(int x)
-{
-    if(x==1)return false;
-     if(x==2)return true;
-    if(x%2==0)return false;
+void arrange(vector<int> &A) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    int n=A.size();
+    for(int i=0;i<n;i++)
+    {
+        A[i]+=(A[A[i]]%n)*n;
+    }
+    for(int i=0;i<n;i++)
+    {
+        A[i]/=n;
+    }
     
-    for(int i=3;i<=sqrt(x);i+=2 )
-    {
-        if(x%i==0)return false;
-    }
-    return true;
-}
-
-vector<int> NNprimesum(int A) {
-   vector<int>res(2); 
-    for(int i=2;i<A;i++)
-    {
-        if(isprime(A-i) && isprime(i))
-        {
-            res[0]=i;
-            res[1]=A-i;
-            break;
-        }
-        
-    }
-    return res;
 }
  
  
